@@ -31,7 +31,7 @@ class TestEditDistance(unittest.TestCase):
         ed = DistanceCalculator(2, 2, 4)
 
         self.assertEqual(ed.distance('book', 'books'), 2)
-        self.assertEqual(ed.distance('book', 'back'), 8)
+        self.assertEqual(ed.distance('book', 'back'), 4)
         self.assertEqual(ed.distance('books', 'book'), 2)
 
 
