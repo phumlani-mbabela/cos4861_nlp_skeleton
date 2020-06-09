@@ -2,7 +2,6 @@ import unittest
 from tokenizer import WhiteSpaceTokenizer, Tokenizer, Token
 from util import Span
 
-
 class TestWhiteSpaceTokenizer(unittest.TestCase):
 
     def setUp(self):
@@ -74,7 +73,7 @@ class TestTokenizer(unittest.TestCase):
         res = self._tokz.tokenize(text)
 
         self.assertEqual(res, [Token(text, Span(0, 5)),
-                               Token(text, Span(5,6)),
+                               Token(text, Span(5, 6)),
                                Token(text, Span(7, 9)),
                                Token(text, Span(10, 13)),
                                Token(text, Span(13, 14)),

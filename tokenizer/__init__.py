@@ -8,7 +8,8 @@ def _white_space_spans(text):
     :param text: The text to scan
     :return: A list of spans
     """
-    matches = re.finditer(r'\s+', text)
+    matches = re.finditer(r'\s+\($\)!?', text)
+    matches = re.finditer(r'(\))|(\()|(\?)|($)|(,)|(!)|(\s)', text)
 
     offset = 0
     for m in matches:
@@ -59,7 +60,7 @@ class ATokenizer:
         :param text: The string to tokenize
         :return: A list of Token objects
         """
-        raise NotImplemented('Tokenizer not implemented.')
+        return
 
 
 class WhiteSpaceTokenizer(ATokenizer):
@@ -91,6 +92,4 @@ class Tokenizer(ATokenizer):
         return
 
     def tokenize(self, text):
-        raise NotImplementedError('Default tokenizer method not implemented')
-
-
+        return [Token(text, Span(s, e)) for s, e in _white_space_spans(text)]
